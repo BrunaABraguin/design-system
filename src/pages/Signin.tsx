@@ -6,12 +6,17 @@ import { TextInput } from "../components/TextInput";
 import { Text } from "../components/Text";
 import { Logo } from "../Logo";
 import { FormEvent, useState } from "react";
+import axios from "axios";
 
 export function SignIn() {
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
 
   function handleSignIn(event: FormEvent) {
     event.preventDefault();
+    axios.post("/sessions", {
+      email: "andradevbruna@gmail.com",
+      password: "12345678",
+    });
 
     setIsUserSignedIn(true);
   }
@@ -37,7 +42,7 @@ export function SignIn() {
             <TextInput.Icon>
               <Envelope />
             </TextInput.Icon>
-            <TextInput.Input placeholder='Digite seu e-mail' />
+            <TextInput.Input placeholder='Digite seu e-mail' type="email" />
           </TextInput.Root>
         </label>
         <label htmlFor='password' className='flex flex-col gap-3'>
@@ -46,7 +51,7 @@ export function SignIn() {
             <TextInput.Icon>
               <Lock />
             </TextInput.Icon>
-            <TextInput.Input placeholder='************' />
+            <TextInput.Input placeholder='************' type="password"/>
           </TextInput.Root>
         </label>
 
