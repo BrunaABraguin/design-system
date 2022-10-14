@@ -5,8 +5,16 @@ import { Heading } from "../components/Heading";
 import { TextInput } from "../components/TextInput";
 import { Text } from "../components/Text";
 import { Logo } from "../Logo";
+import { FormEvent, useState } from "react";
 
 export function SignIn() {
+  const [isUserSignedIn, setIsUserSignedIn] = useState(false);
+
+  function handleSignIn(event: FormEvent) {
+    event.preventDefault();
+
+    setIsUserSignedIn(true);
+  }
   return (
     <div className='w-screen h-screen bg-gray-900 flex flex-col items-center justify-center text-gray-100'>
       <header className='flex flex-col items-center'>
@@ -18,7 +26,11 @@ export function SignIn() {
           Faça login e comece a usar!
         </Text>
       </header>
-      <form className='flex flex-col gap-4 items-stretch w-full max-w-sm mt-10'>
+      <form
+        onSubmit={handleSignIn}
+        className='flex flex-col gap-4 items-stretch w-full max-w-sm mt-10'
+      >
+        {isUserSignedIn && <Text>Login Realizado!</Text>}
         <label htmlFor='email' className='flex flex-col gap-3'>
           <Text className='font-semibold'>Endereço de e-mail</Text>
           <TextInput.Root>
