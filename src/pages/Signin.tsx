@@ -42,7 +42,11 @@ export function SignIn() {
             <TextInput.Icon>
               <Envelope />
             </TextInput.Icon>
-            <TextInput.Input placeholder='Digite seu e-mail' type="email" />
+            <TextInput.Input
+              placeholder='Digite seu e-mail'
+              type='email'
+              id='email'
+            />
           </TextInput.Root>
         </label>
         <label htmlFor='password' className='flex flex-col gap-3'>
@@ -51,7 +55,11 @@ export function SignIn() {
             <TextInput.Icon>
               <Lock />
             </TextInput.Icon>
-            <TextInput.Input placeholder='************' type="password"/>
+            <TextInput.Input
+              placeholder='************'
+              type='password'
+              id='password'
+            />
           </TextInput.Root>
         </label>
 
